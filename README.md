@@ -9,3 +9,6 @@
 - data:{"question":data, "similar": data, "label": 1}
 ## ESIM
 - data:{"question":data, "similar": data, "label": 1}
+
+## BERT_DSSM
+- 没有验证

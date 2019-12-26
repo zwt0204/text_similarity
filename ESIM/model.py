@@ -40,7 +40,7 @@ class EsimCore:
             self.y = tf.placeholder(dtype=tf.int32, shape=None, name='y')
         self.create_embedding()
         self.create_model()
-        if self.is_training == True:
+        if self.is_training is True:
             self.create_loss()
 
     def dropout(self, x):
