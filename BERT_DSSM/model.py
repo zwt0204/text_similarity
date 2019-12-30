@@ -9,7 +9,7 @@
 import tensorflow as tf
 import logging
 from utils.radam import RAdamOptimizer
-from BERT_MODEL.al_bert import modeling
+from BERT_DSSM.al_bert import modeling
 
 _logger = logging.getLogger()
 
