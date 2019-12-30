@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5a4e0e4-37ee-48fe-9a0e-c65a7ca869ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CDSSM/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CDSSM/predict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CDSSM/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/text_similarity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/text_similarity.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BERT_DSSM/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/BERT_DSSM/model.py" afterDir="false" />
-    </list>
+    <list default="true" id="b5a4e0e4-37ee-48fe-9a0e-c65a7ca869ba" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,89 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DSSM/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CDSSM/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
-              <caret line="80" column="40" lean-forward="true" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
-              <folding>
-                <element signature="e#126#149#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CDSSM/train.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-              <folding>
-                <element signature="e#126#135#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CDSSM/predict.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1369">
-              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-              <folding>
-                <element signature="e#128#137#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DSSM_LSTM/predict.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1010">
-              <caret line="146" lean-forward="true" selection-start-line="8" selection-end-line="146" />
-              <folding>
-                <element signature="e#128#137#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DSSM_LSTM/train.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="973">
-              <caret line="120" column="20" lean-forward="true" selection-start-line="8" selection-end-line="120" selection-end-column="20" />
-              <folding>
-                <element signature="e#126#135#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DSSM_LSTM/model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="959">
-              <caret line="152" column="100" lean-forward="true" selection-start-line="61" selection-end-line="152" selection-end-column="100" />
-              <folding>
-                <element signature="e#126#149#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -162,11 +73,6 @@
               <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
               <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
-              <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
-              <item name="CDSSM" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -211,7 +117,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2568" y="5" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19363818" />
@@ -362,7 +267,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DSSM_LSTM/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="959">
+        <state relative-caret-position="973">
           <caret line="152" column="100" lean-forward="true" selection-start-line="61" selection-end-line="152" selection-end-column="100" />
           <folding>
             <element signature="e#126#149#0" expanded="true" />
@@ -429,8 +334,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CDSSM/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="80" column="40" lean-forward="true" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+        <state relative-caret-position="751">
+          <caret line="124" column="61" lean-forward="true" selection-start-line="124" selection-start-column="61" selection-end-line="124" selection-end-column="61" />
           <folding>
             <element signature="e#126#149#0" expanded="true" />
           </folding>
