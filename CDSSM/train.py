@@ -40,13 +40,13 @@ class CDssmTrainner:
                 self.char_index[charvalue.strip()] = i + 1
                 i += 1
 
-    def train(self, epoch=20):
+    def train(self, epochs=20):
         p, h, y = self.load_char_data('train.txt')
         p_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='p')
         h_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='h')
         y_holder = tf.placeholder(dtype=tf.int32, shape=None, name='y')
         dataset = tf.data.Dataset.from_tensor_slices((p_holder, h_holder, y_holder))
-        dataset = dataset.batch(self.batch_size).repeat(epoch)
+        dataset = dataset.batch(self.batch_size).repeat(epochs)
         iterator = dataset.make_initializable_iterator()
         next_element = iterator.get_next()
         saver = tf.train.Saver()
@@ -59,7 +59,7 @@ class CDssmTrainner:
             sess.run(iterator.initializer, feed_dict=feed)
             steps = int(len(y) / self.batch_size)
             max_acc = 0
-            for epoch in range(epoch):
+            for epoch in range(epochs):
                 for step in range(steps):
                     p_batch, h_batch, y_batch = sess.run(next_element)
 
@@ -72,7 +72,7 @@ class CDssmTrainner:
                     print('epoch:', epoch, ' step:', step, ' loss: ', loss, 'acc', acc)
                 if acc >= max_acc:
                     max_acc = acc
-                    saver.save(sess, os.path.join(self.model_dir, "dssm_lstm.dat"))
+                    saver.save(sess, os.path.join(self.model_dir, "cdssm.dat"))
 
     # 加载char_index训练数据
     def load_char_data(self, file):
@@ -117,5 +117,5 @@ class CDssmTrainner:
 
 
 if __name__ == "__main__":
-    trainner = CDssmTrainner
+    trainner = CDssmTrainner()
     trainner.train()

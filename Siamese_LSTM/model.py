@@ -30,11 +30,13 @@ class SiameseLSTM(object):
             self.input_x2 = tf.placeholder(tf.int32, shape=[None, sequence_length], name='input_y')
             self.y_data = tf.placeholder(tf.float32, shape=[None], name='y_data')
             with tf.device('/cpu:0'):
-                embedding = self.weight_variables([vocab_size, rnn_size], 'embedding')
+                embedding = self.weight_variables([vocab_size, self.embedding_size], 'embedding')
+                # [batch_size, sequence_length, embeddings]
                 inputs_x1 = tf.nn.embedding_lookup(embedding, self.input_x1)
                 inputs_x2 = tf.nn.embedding_lookup(embedding, self.input_x2)
-            self.inputs_x1 = self.transform_inputs(inputs_x1, rnn_size, sequence_length)
-            self.inputs_x2 = self.transform_inputs(inputs_x2, rnn_size, sequence_length)
+            # [sequence_length, batch_size, embeddings]
+            self.inputs_x1 = self.transform_inputs(inputs_x1, self.rnn_size, self.sequence_length)
+            self.inputs_x2 = self.transform_inputs(inputs_x2, self.rnn_size, self.sequence_length)
         self.create_declare()
         self.build()
         self.create_loss()
@@ -47,15 +49,14 @@ class SiameseLSTM(object):
             self.fc_b2 = self.bias_variables([128], 'fc_b2')
 
     def build(self):
-        with tf.name_scope('fw_rnn'), tf.variable_scope('fw_rnn'):
+        with tf.name_scope('siamese'), tf.variable_scope('rnn'):
             lstm_fw_cell_list = [tf.contrib.rnn.LSTMCell(self.rnn_size) for _ in range(self.layer_size)]
             lstm_fw_cell_m = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(lstm_fw_cell_list),
                                                            output_keep_prob=self.keep_prob)
             lstm_bw_cell_list = [tf.contrib.rnn.LSTMCell(self.rnn_size) for _ in range(self.layer_size)]
             lstm_bw_cell_m = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(lstm_bw_cell_list),
                                                            output_keep_prob=self.keep_prob)
-        # backward rnn
-        with tf.name_scope('bw_rnn'), tf.variable_scope('bw_rnn'):
+
             outputs_x1, _, _ = tf.contrib.rnn.static_bidirectional_rnn(lstm_fw_cell_m, lstm_bw_cell_m, self.inputs_x1,
                                                                        dtype=tf.float32)
             output_x1 = tf.reduce_mean(outputs_x1, 0)

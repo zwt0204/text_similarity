@@ -1,5 +1,5 @@
 # text_similarity 文本相似度
-## DSSM(是一种伪孪生网络)
+## DSSM
 - data:{"question":data, "similar": data, "label": 1}
 
 ## Siamese

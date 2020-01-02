@@ -21,7 +21,7 @@ class SiameseTrainner:
         self.class_graph = tf.Graph()
         self.model_dir = "siamese"
         self.batch_size = 128
-        self.rnn_size = 128
+        self.rnn_size = 256
         self.layer_size = 2
         self.sequence_length = 70
         self.grad_clip = 5
