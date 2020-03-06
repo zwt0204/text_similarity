@@ -6,13 +6,7 @@
 @git   : 
 @Software: PyCharm
 """
-import os
-import json
-import tensorflow as tf
 from model import DssmCore
-import random
-import numpy as np
-from utils.utils import data_util
 from data_process import *
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 

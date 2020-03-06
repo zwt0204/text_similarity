@@ -18,19 +18,19 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 class EsimTrainner:
 
-    def __init__(self, vocab_file="vocab.json"):
+    def __init__(self, vocab_file="D:\gitwork\qa_robot\\resource\\vocab\dictionary.json"):
         self.model_dir = "esim"
         self.vocab_file = vocab_file
         self.char_index = {' ': 0}
         self.load_dict()
         self.unknow_char_id = len(self.char_index)
-        self.io_sequence_size = 70
+        self.io_sequence_size = 50
         vocab_size = len(self.char_index) + 1
-        learning_rate = 0.0005
+        learning_rate = 0.0003
         trainable = True
         class_size = 2
-        self.batch_size = 128
-        self.keep_prob = 0.4
+        self.batch_size = 64
+        self.keep_prob = 0.3
         with tf.variable_scope('esim_query'):
             self.model = EsimCore(self.io_sequence_size, vocab_size, class_size, learning_rate, trainable)
 
@@ -42,7 +42,7 @@ class EsimTrainner:
                 self.char_index[charvalue.strip()] = i + 1
                 i += 1
 
-    def train(self, epoch=10):
+    def train(self, epoch=20):
         p, h, y = self.load_char_data('train.txt')
         p_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='p')
         h_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='h')
@@ -73,7 +73,7 @@ class EsimTrainner:
                     print('epoch:', epoch, ' step:', step, ' loss: ', loss, ' acc:', acc)
                 if acc >= max_acc:
                     max_acc = acc
-                    saver.save(sess, f'esim_{epoch}.ckpt')
+                    saver.save(sess, os.path.join(self.model_dir, "similarity.dat"))
 
     # 加载char_index训练数据
     def load_char_data(self, file):
@@ -83,9 +83,10 @@ class EsimTrainner:
         label = []
         with open(path, 'r', encoding='utf8') as f:
             for line in f.readlines():
-                p.append(json.loads(line)['question'])
-                h.append(json.loads(line)['similar'])
-                label.append(json.loads(line)['label'])
+                data = json.loads(line)
+                p.append(data['question'])
+                h.append(data['similar'])
+                label.append(data['label'])
 
         p, h, label = self.shuffle(p, h, label)
         p_c_index = self.text_to_sequence(p)

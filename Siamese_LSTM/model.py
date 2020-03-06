@@ -50,13 +50,15 @@ class SiameseLSTM(object):
 
     def build(self):
         with tf.name_scope('siamese'), tf.variable_scope('rnn'):
+            # tf.contrib.rnn.LSTMCell, 返回一个LSTM cell instance
             lstm_fw_cell_list = [tf.contrib.rnn.LSTMCell(self.rnn_size) for _ in range(self.layer_size)]
+            # tf.contrib.rnn.MultiRNNCell, 构建多层循环神经网络。
             lstm_fw_cell_m = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(lstm_fw_cell_list),
                                                            output_keep_prob=self.keep_prob)
             lstm_bw_cell_list = [tf.contrib.rnn.LSTMCell(self.rnn_size) for _ in range(self.layer_size)]
             lstm_bw_cell_m = tf.contrib.rnn.DropoutWrapper(tf.contrib.rnn.MultiRNNCell(lstm_bw_cell_list),
                                                            output_keep_prob=self.keep_prob)
-
+            # outputs is a length T list of outputs (one for each input)
             outputs_x1, _, _ = tf.contrib.rnn.static_bidirectional_rnn(lstm_fw_cell_m, lstm_bw_cell_m, self.inputs_x1,
                                                                        dtype=tf.float32)
             output_x1 = tf.reduce_mean(outputs_x1, 0)
@@ -64,13 +66,18 @@ class SiameseLSTM(object):
             tf.get_variable_scope().reuse_variables()
             outputs_x2, _, _ = tf.contrib.rnn.static_bidirectional_rnn(lstm_fw_cell_m, lstm_bw_cell_m, self.inputs_x2,
                                                                        dtype=tf.float32)
+            # [batch_size, 1, 2 * self.rnn_size]  self.fc_w1: [2 * self.rnn_size, 128]
             output_x2 = tf.reduce_mean(outputs_x2, 0)
+            # [batch_size, 1, 128]
             self.logits_1 = tf.matmul(output_x1, self.fc_w1) + self.fc_b1
             self.logits_2 = tf.matmul(output_x2, self.fc_w2) + self.fc_b2
-
+        # [batch_size, 1]
         f_x1x2 = tf.reduce_sum(tf.multiply(self.logits_1, self.logits_2), 1)
+        # tf.square()是对参数里的每一个元素求平方
+        # [batch_size, 1]
         norm_fx1 = tf.sqrt(tf.reduce_sum(tf.square(self.logits_1), 1))
         norm_fx2 = tf.sqrt(tf.reduce_sum(tf.square(self.logits_2), 1))
+        # https://www.cnblogs.com/dsgcBlogs/p/8619566.html
         self.Ew = f_x1x2 / (norm_fx1 * norm_fx2)
         self.Bw = 1 - self.Ew
         self.logits = tf.concat([self.Ew, self.Bw], axis=0)
@@ -81,10 +88,13 @@ class SiameseLSTM(object):
         with tf.name_scope("siamese_loss"):
             self.cost = self.contrastive_loss(self.Ew, self.y_data)
 
-            # train optimization
+            # 查看可训练的变量, tf.trainable_variables()
             tvars = tf.trainable_variables()
+            # tf.gradients(self.cost, tvars)，计算参数关于损失的梯度
+            # 通过权重梯度的总和的比率来截取多个张量的值
             grads, _ = tf.clip_by_global_norm(tf.gradients(self.cost, tvars), self.grad_clip)
             optimizer = RAdamOptimizer(self.learning_rate)
+            # 用计算得到的梯度来更新对应的变量
             self.train_op = optimizer.apply_gradients(zip(grads, tvars))
 
     def weight_variables(self, shape, name):
