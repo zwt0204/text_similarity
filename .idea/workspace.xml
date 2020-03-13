@@ -4,10 +4,9 @@
     <list default="true" id="b5a4e0e4-37ee-48fe-9a0e-c65a7ca869ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/text_similarity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/text_similarity.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BERT_DSSM/al_bert/modeling.py" beforeDir="false" afterPath="$PROJECT_DIR$/BERT_DSSM/al_bert/modeling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BERT_DSSM/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/BERT_DSSM/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSSM/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/DSSM/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESIM/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/ESIM/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ESIM/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ESIM/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Siamese_LSTM/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Siamese_LSTM/model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,13 +16,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Siamese_LSTM/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="112" column="21" lean-forward="true" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
+            <state relative-caret-position="529">
+              <caret line="68" column="86" selection-start-line="68" selection-start-column="86" selection-end-line="68" selection-end-column="86" />
               <folding>
                 <element signature="e#126#149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ESIM/model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="141" column="55" lean-forward="true" selection-start-line="141" selection-start-column="55" selection-end-line="141" selection-end-column="55" />
+              <folding>
+                <element signature="e#126#149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ESIM/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+              <folding>
+                <element signature="e#126#135#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,6 +67,7 @@
       <find>transform_inputs</find>
       <find>embedding_size</find>
       <find>\&quot;</find>
+      <find>reuse_variables()</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -61,7 +85,6 @@
         <option value="$PROJECT_DIR$/DSSM_LSTM/train.py" />
         <option value="$PROJECT_DIR$/DSSM_LSTM/predict.py" />
         <option value="$PROJECT_DIR$/ESIM/predict.py" />
-        <option value="$PROJECT_DIR$/ESIM/model.py" />
         <option value="$PROJECT_DIR$/BERT_MODEL/data_process.py" />
         <option value="$PROJECT_DIR$/BERT_MODEL/train.py" />
         <option value="$PROJECT_DIR$/BERT_MODEL/model.py" />
@@ -71,12 +94,14 @@
         <option value="$PROJECT_DIR$/Siamese_LSTM/train.py" />
         <option value="$PROJECT_DIR$/CDSSM/train.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/DSSM/model.py" />
         <option value="$PROJECT_DIR$/ESIM/train.txt" />
-        <option value="$PROJECT_DIR$/ESIM/train.py" />
         <option value="$PROJECT_DIR$/BERT_DSSM/al_bert/modeling.py" />
         <option value="$PROJECT_DIR$/BERT_DSSM/train.py" />
         <option value="$PROJECT_DIR$/Siamese_LSTM/model.py" />
+        <option value="$PROJECT_DIR$/DSSM/model.py" />
+        <option value="$PROJECT_DIR$/utils/radam.py" />
+        <option value="$PROJECT_DIR$/ESIM/model.py" />
+        <option value="$PROJECT_DIR$/ESIM/train.py" />
       </list>
     </option>
   </component>
@@ -91,12 +116,33 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
               <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
+              <item name="CDSSM" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
+              <item name="DSSM" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="text_similarity" type="462c0819:PsiDirectoryNode" />
+              <item name="DSSM_LSTM" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="text_similarity" type="b2602c69:ProjectViewProjectNode" />
@@ -112,7 +158,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -121,7 +166,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\mygit\text_similarity\models" />
+      <recent name="D:\mygit\text_similarity\data" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\mygit\text_similarity" />
       <recent name="D:\mygit\text_similarity\ESIM" />
       <recent name="D:\mygit\text_similarity\BERT_MODEL" />
       <recent name="D:\mygit\text_similarity\utils" />
@@ -182,22 +232,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10934394" />
+      <window_info id="Alibaba Cloud Explorer" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09502982" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Alibaba Cloud View" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2402496" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.325273" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.43057722" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.43057722" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Alibaba Function Compute" />
+      <window_info anchor="right" id="Alibaba Log Console" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -242,16 +295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ESIM/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3341">
-          <caret line="119" column="56" lean-forward="true" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
-          <folding>
-            <element signature="e#126#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DSSM/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1010">
@@ -278,16 +321,6 @@
           <caret line="152" column="100" lean-forward="true" selection-start-line="61" selection-end-line="152" selection-end-column="100" />
           <folding>
             <element signature="e#126#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DSSM_LSTM/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
-          <caret line="120" column="20" lean-forward="true" selection-start-line="8" selection-end-line="120" selection-end-column="20" />
-          <folding>
-            <element signature="e#126#135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -373,29 +406,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ESIM/train.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="7967" column="31" lean-forward="true" selection-end-line="8747" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ESIM/train.txt" />
     <entry file="file://$PROJECT_DIR$/BERT_DSSM/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1662">
           <caret line="46" column="49" lean-forward="true" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
           <folding>
             <element signature="e#127#153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ESIM/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding>
-            <element signature="e#126#135#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -430,16 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DSSM/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1182">
-          <caret line="110" column="64" selection-start-line="110" selection-start-column="64" selection-end-line="110" selection-end-column="64" />
-          <folding>
-            <element signature="e#126#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/envs/robot/Lib/site-packages/tensorflow/python/ops/variables.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="788">
@@ -447,12 +454,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Siamese_LSTM/model.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="112" column="21" lean-forward="true" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
+        <state relative-caret-position="3922">
+          <caret line="106" column="6" selection-start-line="106" selection-start-column="6" selection-end-line="106" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/radam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="21" selection-end-column="7" />
+          <folding>
+            <element signature="e#105#128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSSM_LSTM/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1591">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="37" />
+          <folding>
+            <element signature="e#126#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DSSM/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="76" column="21" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="21" />
           <folding>
             <element signature="e#126#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/train_0302.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Siamese_LSTM/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="68" column="86" selection-start-line="68" selection-start-column="86" selection-end-line="68" selection-end-column="86" />
+          <folding>
+            <element signature="e#126#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ESIM/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="141" column="55" lean-forward="true" selection-start-line="141" selection-start-column="55" selection-end-line="141" selection-end-column="55" />
+          <folding>
+            <element signature="e#126#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ESIM/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+          <folding>
+            <element signature="e#126#135#0" expanded="true" />
           </folding>
         </state>
       </provider>

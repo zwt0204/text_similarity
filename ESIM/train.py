@@ -26,13 +26,13 @@ class EsimTrainner:
         self.unknow_char_id = len(self.char_index)
         self.io_sequence_size = 50
         vocab_size = len(self.char_index) + 1
-        learning_rate = 0.0003
+        # learning_rate = 0.0003
         trainable = True
         class_size = 2
         self.batch_size = 64
         self.keep_prob = 0.3
         with tf.variable_scope('esim_query'):
-            self.model = EsimCore(self.io_sequence_size, vocab_size, class_size, learning_rate, trainable)
+            self.model = EsimCore(self.io_sequence_size, vocab_size, class_size, trainable)
 
     def load_dict(self):
         i = 0
@@ -43,7 +43,7 @@ class EsimTrainner:
                 i += 1
 
     def train(self, epoch=20):
-        p, h, y = self.load_char_data('train.txt')
+        p, h, y = self.load_char_data('D:\mygit\\text_similarity\data\\train_0302.txt')
         p_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='p')
         h_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='h')
         y_holder = tf.placeholder(dtype=tf.int32, shape=None, name='y')
@@ -65,7 +65,7 @@ class EsimTrainner:
             for epoch in range(epoch):
                 for step in range(steps):
                     p_batch, h_batch, y_batch = sess.run(next_element)
-                    _, loss, acc = sess.run([self.model.train_op, self.model.loss, self.model.acc],
+                    _, loss, acc, lr, _ = sess.run([self.model.train_op, self.model.loss, self.model.acc, self.model.learning_rate, self.model.add_global],
                                             feed_dict={self.model.p: p_batch,
                                                        self.model.h: h_batch,
                                                        self.model.y: y_batch,

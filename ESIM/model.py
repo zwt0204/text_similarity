@@ -15,7 +15,7 @@ _logger = logging.getLogger()
 
 class EsimCore:
 
-    def __init__(self, io_sequence_size, vocab_size, class_size=2, learning_rate=0.001, trainable=False):
+    def __init__(self, io_sequence_size, vocab_size, class_size=2, trainable=False):
 
         # 为True表示训练
         self.is_training = trainable
@@ -24,7 +24,7 @@ class EsimCore:
         # 句子长度
         self.io_sequence_size = io_sequence_size
         # 学习率
-        self.learning_rate = learning_rate
+        # self.learning_rate = learning_rate
         # embedding维度
         self.embedding_size = 64
         # lstm单元数
@@ -127,9 +127,16 @@ class EsimCore:
             self.loss = tf.reduce_mean(loss)
 
             tvars = tf.trainable_variables()
+            global_step = tf.Variable(0, trainable=False)
             grads, _ = tf.clip_by_global_norm(tf.gradients(self.loss, tvars), self.grad_clip)
+            init_rate = 0.01
+            self.learning_rate = tf.train.exponential_decay(init_rate,
+                                                       global_step=global_step,
+                                                       decay_steps=10,
+                                                       decay_rate=0.5)
 
             # self.train_op = tf.train.AdamOptimizer(self.learning_rate).minimize(self.loss)
             self.train_op = RAdamOptimizer(self.learning_rate).minimize(self.loss)
             correct_prediction = tf.equal(tf.cast(self.prediction, tf.int32), self.y)
             self.acc = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+            self.add_global = global_step.assign_add(1)

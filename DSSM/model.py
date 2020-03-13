@@ -47,6 +47,7 @@ class DssmCore:
         return tf.nn.dropout(x, keep_prob=self.keep_prob)
 
     def create_embedding(self):
+        # tf.AUTO_REUSE：如果创建过就返回，没有创建过就创建一个新的变量返回
         with tf.variable_scope("dssm_declare", reuse=tf.AUTO_REUSE):
             self.embedding = tf.get_variable(dtype=tf.float32, shape=(self.vocab_size, self.embedding_size),
                                              name='dssm_embedding')
@@ -66,7 +67,6 @@ class DssmCore:
         h_embedding = tf.nn.embedding_lookup(self.embedding, self.h)
         p_context = self.fully_connect(p_embedding)
         h_context = self.fully_connect(h_embedding)
-        # p_context:[batch_size, ]
         pos_result = self.cosine(p_context, h_context)
         neg_result = 1 - pos_result
 
@@ -94,6 +94,7 @@ class DssmCore:
 
             # l2正则化
             # tf.trainable_variables()：可以也仅可以查看可训练的变量
+            # tf.nn.l2_loss(tf_var) 返回 sum(tf_var**2 / 2)
             l2 = sum(1e-5 * tf.nn.l2_loss(tf_var) for tf_var in tf.trainable_variables())
             self.loss += l2
 
