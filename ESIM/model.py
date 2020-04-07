@@ -16,7 +16,6 @@ _logger = logging.getLogger()
 class EsimCore:
 
     def __init__(self, io_sequence_size, vocab_size, class_size=2, trainable=False):
-
         # 为True表示训练
         self.is_training = trainable
         # 字个数
@@ -121,7 +120,6 @@ class EsimCore:
 
     def create_loss(self):
         with tf.variable_scope("esim_loss", reuse=tf.AUTO_REUSE):
-
             y = tf.one_hot(self.y, self.calss_size)
             loss = tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=self.logits)
             self.loss = tf.reduce_mean(loss)
@@ -131,9 +129,9 @@ class EsimCore:
             grads, _ = tf.clip_by_global_norm(tf.gradients(self.loss, tvars), self.grad_clip)
             init_rate = 0.01
             self.learning_rate = tf.train.exponential_decay(init_rate,
-                                                       global_step=global_step,
-                                                       decay_steps=10,
-                                                       decay_rate=0.5)
+                                                            global_step=global_step,
+                                                            decay_steps=10,
+                                                            decay_rate=0.5)
 
             # self.train_op = tf.train.AdamOptimizer(self.learning_rate).minimize(self.loss)
             self.train_op = RAdamOptimizer(self.learning_rate).minimize(self.loss)

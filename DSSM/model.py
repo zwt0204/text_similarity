@@ -50,7 +50,7 @@ class DssmCore:
         # tf.AUTO_REUSE：如果创建过就返回，没有创建过就创建一个新的变量返回
         with tf.variable_scope("dssm_declare", reuse=tf.AUTO_REUSE):
             self.embedding = tf.get_variable(dtype=tf.float32, shape=(self.vocab_size, self.embedding_size),
-                                             name='dssm_embedding')
+                                             name='dssm_embedding', trainable=True)
 
     def cosine(self, p, h):
         # 用于计算向量，矩阵和tensor的范数，默认情况下是计算欧氏距离的L2范数

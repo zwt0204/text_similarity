@@ -119,7 +119,11 @@ class CDSSM(object):
 
             num_filter_total = self.num_filters * len(self.kernel_size)
             self.h_pool = tf.concat(pooled_outputs, 3)
-            self.h_pool_flat_2 = tf.reshape(self.h_pool, [-1, num_filter_total])
+
+            x = tf.layers.dense(self.h_pool, 256, activation='tanh')
+            # x = self.dropout(x)
+            # x = tf.reshape(x, shape=(-1, x.shape[1] * x.shape[2]))
+            self.h_pool_flat_2 = tf.reshape(x, [-1, num_filter_total])
 
         outputs1 = tf.reduce_mean(self.h_pool_flat_1, axis=1)
         outputs2 = tf.reduce_mean(self.h_pool_flat_2, axis=1)
