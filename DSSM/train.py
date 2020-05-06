@@ -17,24 +17,24 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 class DssmTrainner:
 
-    def __init__(self, vocab_file="vocab.json"):
-        self.model_dir = "dssm"
+    def __init__(self, vocab_file="../data/dictionary.json"):
+        self.model_dir = "D:\mygit\\text_similarity\models\dssm"
         self.vocab_file = vocab_file
         self.char_index = {' ': 0}
         self.char_index = data_util.load_dict(vocab_file, self.char_index)
         self.unknow_char_id = len(self.char_index)
-        self.io_sequence_size = 70
+        self.io_sequence_size = 50
         vocab_size = len(self.char_index) + 1
         learning_rate = 0.0001
         trainable = True
         class_size = 2
         self.batch_size = 128
-        self.keep_prob = 0.9
+        self.keep_prob = 0.8
         with tf.variable_scope('dssm_query'):
             self.model = DssmCore(self.io_sequence_size, vocab_size, class_size, learning_rate, trainable)
 
     def train(self, epoch=30):
-        p, h, y = self.load_char_data('train.txt')
+        p, h, y = self.load_char_data('../data/train.txt')
         p_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='p')
         h_holder = tf.placeholder(dtype=tf.int32, shape=(None, self.io_sequence_size), name='h')
         y_holder = tf.placeholder(dtype=tf.int32, shape=None, name='y')
@@ -65,7 +65,7 @@ class DssmTrainner:
                     print('epoch:', epoch, ' step:', step, ' loss: ', loss, ' acc:', acc)
                 if acc >= max_acc:
                     max_acc = acc
-                    saver.save(sess, f'dssm_{epoch}.ckpt')
+                    saver.save(sess, os.path.join(self.model_dir, "dssm.dat"))
 
     # 加载char_index训练数据
     def load_char_data(self, file):

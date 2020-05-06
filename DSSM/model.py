@@ -59,8 +59,12 @@ class DssmCore:
         h_norm = tf.norm(p, axis=1, keepdims=True)
         # 公式：http://note.youdao.com/noteshare?id=b04ad8ab7211331073217e8202056585&sub=44E9A792C5D04903A73118503699E7D9
         cosine = tf.reduce_sum(tf.multiply(p, h), axis=1, keepdims=True) / (p_norm * h_norm)
+        # 将结果限制在固定范围
+        cos_sim_prob = tf.clip_by_value(cosine, 1e-8, 1.0)
 
-        return cosine
+        # cosine = 0.5 + 0.5 * cosine
+
+        return cos_sim_prob
 
     def create_model(self):
         p_embedding = tf.nn.embedding_lookup(self.embedding, self.p)
@@ -71,6 +75,7 @@ class DssmCore:
         neg_result = 1 - pos_result
 
         self.logits = tf.concat([pos_result, neg_result], axis=1)
+        # 默认计算的最后有一个维度：softmax = tf.exp(logits) / tf.reduce_sum(tf.exp(logits), axis)
         self.prob = tf.nn.softmax(self.logits)
         self.prediction = tf.argmax(self.logits, axis=1)
 

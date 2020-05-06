@@ -50,7 +50,7 @@ class SiameseTrainner:
                 i += 1
 
     def train(self, epochs=30):
-        p, h, y = self.load_char_data('train.txt')
+        p, h, y = self.load_char_data('../data/train.txt')
         dataset = tf.data.Dataset.from_tensor_slices((self.model.input_x1, self.model.input_x2, self.model.y_data))
         dataset = dataset.batch(self.batch_size).repeat(epochs)
         iterator = dataset.make_initializable_iterator()
